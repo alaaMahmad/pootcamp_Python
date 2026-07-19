@@ -1,5 +1,5 @@
 #1
-for i in range(151):
+for i in range(0,151,1):
     print(i)
 #2
 for i in range(5,1001,5):
