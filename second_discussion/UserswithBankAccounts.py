@@ -27,7 +27,7 @@ class User:
     def __init__(self, name, email_address):
         self.name = name
         self.email = email_address
-        self.account = BankAccount()
+        self.account = BankAccount(int_rate=0.02,balance=0)
 
     def make_deposit(self, amount):
         self.account.deposit(amount)
