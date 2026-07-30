@@ -92,33 +92,68 @@ class SList:
 
         return self
 
-linked_list = SList()
+    def merge_two_lists(self, list1, list2):
+        dummy = SLNode(0)
+        tail = dummy
 
-print("Testing add_to_front")
-linked_list.add_to_front("alaa")
-linked_list.add_to_front("hello")
-linked_list.print_values()
+        runner_1 = list1.head
+        runner_2 = list2.head
 
-print("\nTesting add_to_back")
-linked_list.add_to_back("world")
-linked_list.print_values()
+        while runner_1 is not None and runner_2 is not None:
+            if runner_1.value <= runner_2.value:
+                tail.next = runner_1
+                runner_1 = runner_1.next
+            else:
+                tail.next = runner_2
+                runner_2 = runner_2.next
+            tail = tail.next
 
-print("\nTesting insert_at index 1")
-linked_list.insert_at("python", 1)
-linked_list.print_values()
+        tail.next = runner_1 if runner_1 is not None else runner_2
 
-print("\nTesting remove_from_front")
-removed_front = linked_list.remove_from_front()
-print(f"Removed: {removed_front}")
-print("List now:")
-linked_list.print_values()
+        merged_slist = SList()
+        merged_slist.head = dummy.next
+        return merged_slist
 
-print("\nTesting remove_from_back")
-removed_back = linked_list.remove_from_back()
-print(f"Removed: {removed_back}")
-print("List now:")
-linked_list.print_values()
 
-print("\nTesting remove_val python")
-linked_list.remove_val("python")
-linked_list.print_values()
+# Test 1: Standard overlapping lists
+print("Test 1: Standard Lists ")
+list1 = SList()
+list1.add_to_back(1)
+list1.add_to_back(2)
+list1.add_to_back(4)
+
+list2 = SList()
+list2.add_to_back(1)
+list2.add_to_back(3)
+list2.add_to_back(4)
+
+slist_runner = SList()
+merged1 = slist_runner.merge_two_lists(list1, list2)
+merged1.print_values()
+
+# Test 2: Different lengths
+print("\nTest 2: Different Lengths")
+list3 = SList()
+list3.add_to_back(1)
+list3.add_to_back(5)
+list3.add_to_back(10)
+list3.add_to_back(15)
+
+list4 = SList()
+list4.add_to_back(2)
+list4.add_to_back(3)
+
+merged2 = slist_runner.merge_two_lists(list3, list4)
+merged2.print_values()
+
+# Test 3: One empty list
+print("\nTest 3: One Empty List")
+list5 = SList() 
+
+list6 = SList()
+list6.add_to_back(0)
+list6.add_to_back(8)
+list6.add_to_back(9)
+
+merged3 = slist_runner.merge_two_lists(list5, list6)
+merged3.print_values()
