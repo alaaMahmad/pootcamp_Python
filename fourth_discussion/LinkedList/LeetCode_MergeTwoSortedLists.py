@@ -108,7 +108,10 @@ class SList:
                 runner_2 = runner_2.next
             tail = tail.next
 
-        tail.next = runner_1 if runner_1 is not None else runner_2
+        if runner_1 is not None:
+            tail.next = runner_1
+        else:
+            tail.next = runner_2
 
         merged_slist = SList()
         merged_slist.head = dummy.next
