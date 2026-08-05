@@ -118,7 +118,6 @@ class SList:
         return merged_slist
 
 
-# Test 1: Standard overlapping lists
 print("Test 1: Standard Lists ")
 list1 = SList()
 list1.add_to_back(1)
@@ -134,7 +133,7 @@ slist_runner = SList()
 merged1 = slist_runner.merge_two_lists(list1, list2)
 merged1.print_values()
 
-# Test 2: Different lengths
+
 print("\nTest 2: Different Lengths")
 list3 = SList()
 list3.add_to_back(1)
@@ -149,7 +148,7 @@ list4.add_to_back(3)
 merged2 = slist_runner.merge_two_lists(list3, list4)
 merged2.print_values()
 
-# Test 3: One empty list
+
 print("\nTest 3: One Empty List")
 list5 = SList() 
 
