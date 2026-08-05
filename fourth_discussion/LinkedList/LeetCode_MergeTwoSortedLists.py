@@ -93,8 +93,8 @@ class SList:
         return self
 
     def merge_two_lists(self, list1, list2):
-        dummy = SLNode(0)
-        tail = dummy
+        list_3 = SLNode(0)
+        tail = list_3
 
         runner_1 = list1.head
         runner_2 = list2.head
@@ -114,7 +114,7 @@ class SList:
             tail.next = runner_2
 
         merged_slist = SList()
-        merged_slist.head = dummy.next
+        merged_slist.head = list_3.next
         return merged_slist
 
 
